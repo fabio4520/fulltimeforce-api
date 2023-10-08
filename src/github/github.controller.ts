@@ -3,9 +3,9 @@ import { GithubService } from './github.service';
 
 @Controller('github')
 export class GithubController {
-  constructor(private readonly githubService: GithubService) { }
+  constructor(private githubService: GithubService) { }
 
-  @Get('respos/:owner/:repo/commits')
+  @Get('/repos/:owner/:repo/commits')
   async listCommits(
     @Param('owner') owner: string,
     @Param('repo') repo: string
