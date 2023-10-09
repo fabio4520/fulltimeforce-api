@@ -1,73 +1,58 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Fulltimeforce API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is a sample README.md file for Fulltimeforce API. It provides instructions on how to install and run the project using Docker.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+The API is deployed and you can use it in the following link: https://fulltimeforce-api.onrender.com
 
-## Description
+It has a unique endpoint in order to get the commits
+Example:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+GET https://fulltimeforce-api.onrender.com/github/repos/fabio4520/nodejs-kafkajs/commits?per_page=30
 
-## Installation
+Note that it must be provided an owner and the name of the repository in order to get the commits.
 
-```bash
-$ npm install
+## Prerequisites
+
+Before you begin, ensure you have the following installed on your system:
+
+- [Docker](https://www.docker.com/get-started) - Make sure Docker is installed and running on your machine.
+
+## Getting Started
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/fabio4520/fulltimeforce-api.git
+   cd fulltimeforce-api
+   ```
+
+2. **Build the Docker Image**:
+
+   - Open a terminal in the project directory and run the following command to build a Docker image:
+
+     ```bash
+     docker build -t fulltimeforceapi .
+     ```
+
+3. **Run the Docker Container**:
+
+   - After building the Docker image, run a container using the following command:
+
+     ```bash
+     docker run -p 3000:3000 fulltimeforceapi
+     ```
+
+   - This command maps port 3000 from the container to port 3000 on your host machine.
+
+4. **Access fulltimeforceapi**:
+
+   - With the Docker container running, the api should be accessible at `http://localhost:3000` in your web browser.
+
+## Environment Variables
+
+The current api has a personal github token in order to make requests, but It can be used without any token.
+
+```env
+PORT=3000
+GITHUB_API_TOKEN='GITHUB_API_TOKEN'
 ```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
