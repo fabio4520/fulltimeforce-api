@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { GithubService } from './github.service';
 
 @Controller('github')
@@ -8,8 +8,9 @@ export class GithubController {
   @Get('/repos/:owner/:repo/commits')
   async listCommits(
     @Param('owner') owner: string,
-    @Param('repo') repo: string
+    @Param('repo') repo: string,
+    @Query('per_page') per_page: number,
   ) {
-    return this.githubService.listCommits(owner, repo);
+    return this.githubService.listCommits(owner, repo, per_page);
   }
 }
